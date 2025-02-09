@@ -11,12 +11,13 @@ class SuitResultPanel extends JPanel {
 
     public SuitResultPanel() {
         setLayout(new BorderLayout(10, 10));
+
         suitInfoLabel = new JLabel("Suit details will appear here");
         suitInfoLabel.setHorizontalAlignment(SwingConstants.CENTER);
         suitInfoLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         add(suitInfoLabel, BorderLayout.CENTER);
 
-        // Panel for the buttons
+        // Create a panel for the buttons
         JPanel buttonPanel = new JPanel();
         repairButton = new JButton("Repair Suit");
         backButton = new JButton("Back");
@@ -47,6 +48,7 @@ class SuitResultPanel extends JPanel {
         this.controller = controller;
     }
 
+    // Update the display with the suit details.
     public void updateSuitInfo(Suit suit) {
         this.currentSuit = suit;
         String info = suit.toString();

@@ -69,6 +69,7 @@ class SuitRepository {
                 String code = parts[0].trim();
                 String type = parts[1].trim();
                 int durability = Integer.parseInt(parts[2].trim());
+                
                 if (type.equalsIgnoreCase("POWER")) {
                     suits.add(new PowerSuit(code, durability));
                 } else if (type.equalsIgnoreCase("STEALTH")) {

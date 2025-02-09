@@ -9,6 +9,7 @@ class SuitInputPanel extends JPanel {
 
     public SuitInputPanel() {
         setLayout(new BorderLayout(10, 10));
+        
         JLabel label = new JLabel("Enter Suit Code (6 digits, first digit not 0): ");
         codeField = new JTextField(10);
         checkButton = new JButton("Check Suit");

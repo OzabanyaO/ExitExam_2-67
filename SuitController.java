@@ -25,6 +25,7 @@ class SuitController {
             return;
         }
 
+        // Retrieve the suit from the repository
         Suit suit = repository.getSuitByCode(code);
         if (suit == null) {
             JOptionPane.showMessageDialog(frame, 
@@ -33,7 +34,7 @@ class SuitController {
             return;
         }
 
-        // Update the result view in the GUI with the suit details.
+        // Show suit details on the result panel
         frame.showResultPanel(suit);
     }
 
@@ -43,13 +44,17 @@ class SuitController {
             newDurability = 100;
         }
         suit.setDurability(newDurability);
+
         // Update the repair count for this suit type.
         String type = suit.getSuitType();
         repairCount.put(type, repairCount.get(type) + 1);
+
         JOptionPane.showMessageDialog(frame, 
                 "Suit repaired successfully. New durability: " + suit.getDurability(),
                 "Repair Successful", JOptionPane.INFORMATION_MESSAGE);
-        frame.updateRepairSummary(); // Update the repair summary displayed on the screen.
+
+        // Update the repair summary displayed on the screen.
+        frame.updateRepairSummary();
     }
 
     public Map<String, Integer> getRepairCount() {

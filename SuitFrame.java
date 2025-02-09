@@ -17,11 +17,10 @@ class SuitFrame extends JFrame {
         setSize(500, 350);
         setLayout(new BorderLayout());
 
-        // Create the card panel with CardLayout.
+        // Create the card panel for input and result views.
         cardLayout = new CardLayout();
         cardsPanel = new JPanel(cardLayout);
 
-        // Create the input and result panels.
         inputPanel = new SuitInputPanel();
         resultPanel = new SuitResultPanel();
         cardsPanel.add(inputPanel, "input");
@@ -32,20 +31,16 @@ class SuitFrame extends JFrame {
         summaryLabel = new JLabel();
         summaryPanel.add(summaryLabel);
 
-        // Add panels to the frame.
         add(cardsPanel, BorderLayout.CENTER);
         add(summaryPanel, BorderLayout.SOUTH);
 
-        // Create the controller and pass this frame.
+        // Create the controller and provide it to the panels.
         controller = new SuitController(repository, this);
-
-        // Provide the controller to the panels.
         inputPanel.setController(controller);
         resultPanel.setController(controller);
 
-        updateRepairSummary(); // Update the repair summary.s
-
-        // Show the input panel.
+        // Update the repair summary and show the input panel.
+        updateRepairSummary();
         cardLayout.show(cardsPanel, "input");
     }
 
